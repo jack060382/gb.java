@@ -49,7 +49,8 @@ public class Client {
                             System.out.println("Please press ENTER to close client...");
                             break;
                         }
-                        System.out.println("SERVER: "+inboundMessage);
+                        System.out.println("\nSERVER: "+inboundMessage);
+                        System.out.print("Me: ");
                     }
                 } catch (IOException e) {
                     System.out.print("Server disconnected");

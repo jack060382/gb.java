@@ -53,7 +53,8 @@ public class Server {
                     break;
                 }
 
-                System.out.println("Client: "+inboundMessage);
+                System.out.println("\nCLIENT: "+inboundMessage);
+                System.out.print("Me: ");
             }
         } catch (IOException e) {
             e.printStackTrace();
