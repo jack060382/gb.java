@@ -1,20 +1,22 @@
+package ru.gb.current;
+
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
-import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class Client {
 
     private Socket socket;
 
     public Client() {
-        start();
+        init();
         communicate();
     }
 
-    private void start() {
+    private void init() {
         try {
             Thread.sleep(3000);
             socket = new Socket("localhost", 8899);
@@ -25,22 +27,43 @@ public class Client {
 
     private void communicate() {
         try {
-            DataOutputStream out = new DataOutputStream(socket.getOutputStream());
             DataInputStream in = new DataInputStream(socket.getInputStream());
+            DataOutputStream out = new DataOutputStream(socket.getOutputStream());
             Scanner scanner = new Scanner(System.in);
-            while(true) {
-                String inMessage = in.readUTF();
-                if (inMessage.equals("-exit")) {
+
+            AtomicBoolean isAlive = new AtomicBoolean(true);
+
+            new Thread(() -> {
+                try {
+                    while (true) {
+                        String inboundMessage = in.readUTF();
+                        if (inboundMessage.equals("-end")) {
+                            isAlive.set(false);
+                            System.out.println("Please press ENTER to close client...");
+                            break;
+                        }
+                        System.out.println(inboundMessage);
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            })
+                    .start();
+
+            while (true) {
+                if (!isAlive.get()) {
+                    System.out.println("Client closing...");
+                    System.out.println("STATUS OK.");
                     break;
                 }
-                else {
-                    System.out.println(inMessage);
-                }
 
-                String message = scanner.nextLine();
-                out.writeUTF(message);
+                System.out.println("Please input message...");
+                String outboundMessage = scanner.nextLine();
+                out.writeUTF(outboundMessage);
             }
-        } catch (Exception e) {
+
+
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
