@@ -29,7 +29,7 @@ public class Server {
             new Thread(() -> {
                 try {
                     while (true) {
-                        //System.out.println("Please input message...");
+                        System.out.print("Me: ");
                         String outboundMessage = scanner.nextLine();
                         out.writeUTF(outboundMessage);
                     }
@@ -53,7 +53,6 @@ public class Server {
                     break;
                 }
 
-                System.out.print("Me: ");
                 System.out.println("Client: "+inboundMessage);
             }
         } catch (IOException e) {
