@@ -26,6 +26,7 @@ public class ChatWindow {
         setBorderLayoutManager(chatFrame);
 
         textArea = new JTextArea();
+
         textArea.setEditable(false);
 
         JScrollPane scrollPane = new JScrollPane(textArea);
