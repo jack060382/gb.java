@@ -1,7 +1,8 @@
+package ru.gb.current;
+
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -11,50 +12,48 @@ public class Server {
     private Socket client;
 
     public Server() {
-        start();
+        init();
         communicate();
+        System.out.println("Closing the connection...");
+        System.out.println("Shutting down...");
+        System.out.println("STATUS OK.");
     }
 
-    private void start() {
+    private void init() {
         try {
             socket = new ServerSocket(8899);
             System.out.println("Socket created...");
-            System.out.println("Waiting for connection...");
+            System.out.println("Waiting for a connection...");
             client = socket.accept();
-            System.out.println("Client connected: ");
+            System.out.println("Client connected...");
             System.out.println(client);
-
+            System.out.println("STATUS OK.");
         } catch (IOException e) {
+            System.out.println("STATUS NOK.");
             e.printStackTrace();
         }
     }
 
     private void communicate() {
-
         try {
             DataInputStream in = new DataInputStream(client.getInputStream());
             DataOutputStream out = new DataOutputStream(client.getOutputStream());
-/*
-            int ch;
-            while ((ch = in.read()) != -1) {
-                System.out.print((char) ch);
-            }
-*/
-            while(true) {
-                String inMessage = in.readUTF();
 
-                System.out.println("Message: " + inMessage);
-                if (inMessage.equals("-exit")) {
-                    out.writeUTF("Good by!");
+            while (true) {
+                String inboundMessage = in.readUTF();
+
+                if (inboundMessage.equals("-exit")) {
+                    out.writeUTF("ECHO: Good bye!");
                     out.writeUTF("-end");
                     break;
                 }
-            }
 
-        } catch (Exception e) {
+                out.writeUTF("ECHO: " + inboundMessage);
+            }
+        } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
+
 
 }
