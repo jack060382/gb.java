@@ -2,8 +2,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
-public class ChatWindow {
+public class ChatWindow implements KeyListener {
 
     private int EXIT_ON_CLOSE = 99;
     private JFrame chatFrame;
@@ -36,12 +38,24 @@ public class ChatWindow {
         chatFrame.setVisible(true);
     }
 
+    @Override
+    public void keyPressed(KeyEvent e) {
+        if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+            sendMessage();
+        }
+    }
+    @Override
+    public void keyTyped(KeyEvent e) {}
+    @Override
+    public void keyReleased(KeyEvent arg0) {}
+
     private void setBorderLayoutManager(JFrame mainFrame) {
         JPanel bottomPanel = new JPanel(new BorderLayout());
         mainFrame.add(bottomPanel, BorderLayout.SOUTH);
 
         input = new JTextField("");
         bottomPanel.add(input, BorderLayout.CENTER);
+        input.addKeyListener(this);
 
         JButton send = new JButton("Send");
         bottomPanel.add(send, BorderLayout.EAST);
@@ -60,6 +74,7 @@ public class ChatWindow {
         String messageStr = input.getText().trim();
         textArea.append(messageStr + "\n");
         input.setText("");
+        input.grabFocus();
     }
 
     private JMenuBar getJMenuBar() {
