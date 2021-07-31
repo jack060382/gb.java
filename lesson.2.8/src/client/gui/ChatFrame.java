@@ -1,17 +1,39 @@
+package client.gui;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.util.function.Consumer;
 
-public class ChatWindow {
+
+public class ChatFrame implements KeyListener {
 
     private int EXIT_ON_CLOSE = 99;
     private JFrame chatFrame;
 
     private JTextField input;
     private JTextArea textArea;
+    private final Consumer<String> messageConsumer;
+    private final Consumer<String> outConsumer;
 
-    public ChatWindow() {
+    public Consumer<String> getConsumer() {
+        return messageConsumer;
+    }
+
+    public ChatFrame(Consumer<String> outConsumer) {
+
+        this.outConsumer = outConsumer;
+
+        messageConsumer = new Consumer<String>() {
+            @Override
+            public void accept(String inMess) {
+                textArea.append(inMess+"\n");
+            }
+        };
+
         chatFrame = new JFrame();
 
         chatFrame.setTitle("Chat v0.1");
@@ -36,12 +58,26 @@ public class ChatWindow {
         chatFrame.setVisible(true);
     }
 
+
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+        if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+            sendMessage();
+        }
+    }
+    @Override
+    public void keyTyped(KeyEvent e) {}
+    @Override
+    public void keyReleased(KeyEvent arg0) {}
+
     private void setBorderLayoutManager(JFrame mainFrame) {
         JPanel bottomPanel = new JPanel(new BorderLayout());
         mainFrame.add(bottomPanel, BorderLayout.SOUTH);
 
         input = new JTextField("");
         bottomPanel.add(input, BorderLayout.CENTER);
+        input.addKeyListener(this);
 
         JButton send = new JButton("Send");
         bottomPanel.add(send, BorderLayout.EAST);
@@ -58,8 +94,10 @@ public class ChatWindow {
 
     public void sendMessage() {
         String messageStr = input.getText().trim();
-        textArea.append(messageStr + "\n");
+        outConsumer.accept(messageStr);
+        //textArea.append(messageStr + "\n");
         input.setText("");
+        input.grabFocus();
     }
 
     private JMenuBar getJMenuBar() {
