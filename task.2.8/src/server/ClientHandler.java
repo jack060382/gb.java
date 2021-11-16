@@ -17,7 +17,7 @@ public class ClientHandler {
     private DataOutputStream out;
     private String name;
     private String privateRegExp = "private\\[([a-z0-9\\;]+)\\]:\\s(.*)";
-    private final int AUTH_TIMEOUT = 60;
+    private final int AUTH_TIMEOUT = 3600;
     private final Socket socket;
 
     public ClientHandler(Server server, Socket socket) {
@@ -71,6 +71,7 @@ public class ClientHandler {
     }
 
     private void startTimeOutCounter() {
+        // Socket.setSoTimeout
         long incomeTime = System.currentTimeMillis();
         new Thread(() -> {
                 while (true) {
@@ -86,6 +87,7 @@ public class ClientHandler {
     private void doAuthentication() throws IOException {
         sendMessage("Glad to see you!");
         sendMessage("Please auth in "+AUTH_TIMEOUT+" seconds. -auth [login] [pass]");
+        sendMessage("#authmodal#");
         startTimeOutCounter();
         while (true) {
             String maybeCredentials = in.readUTF();
