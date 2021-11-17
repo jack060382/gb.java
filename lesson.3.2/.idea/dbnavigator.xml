@@ -24,18 +24,14 @@
     <autoscroll-to-editor value="false" />
     <autoscroll-from-editor value="true" />
     <show-object-properties value="true" />
-    <loaded-nodes>
-      <connection connection-id="2987f2ec-e85d-4114-8fef-9ea05b9479c0">
-        <schema name="university" object-types="table, view, procedure, function, constraint, index, column, dataset trigger" />
-      </connection>
-    </loaded-nodes>
+    <loaded-nodes />
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="135bfd50-8e7d-4b39-ac0a-20a9da5bae16">
       <console name="Connection" type="STANDARD" schema="" session="Main" />
     </connection>
     <connection id="2987f2ec-e85d-4114-8fef-9ea05b9479c0">
-      <console name="local win mysql" type="STANDARD" schema="" session="Main"><![CDATA[show tables;]]></console>
+      <console name="local win mysql" type="STANDARD" schema="" session="Main" />
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
