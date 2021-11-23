@@ -26,7 +26,8 @@ public class ChatApp {
         new Thread(() -> {
             while (true) {
                 String inMess = communicator.receiveMessage();
-                frame.getConsumer().accept(inMess);
+                ChatCommand command = new ChatCommand(inMess);
+                frame.getConsumer().accept(command);
             }
         }).start();
 

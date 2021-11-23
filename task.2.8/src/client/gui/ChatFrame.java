@@ -1,5 +1,7 @@
 package client.gui;
 
+import client.ChatCommand;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -16,21 +18,49 @@ public class ChatFrame implements KeyListener {
 
     private JTextField input;
     private JTextArea textArea;
-    private final Consumer<String> messageConsumer;
+    private final Consumer<ChatCommand> messageConsumer;
     private final Consumer<String> outConsumer;
 
-    public Consumer<String> getConsumer() {
+    public Consumer<ChatCommand> getConsumer() {
         return messageConsumer;
+    }
+
+    public JTextArea getTextArea() {
+        return textArea;
+    }
+
+    public JDialog createAuthDialog() {
+        JDialog dialog = new JDialog(chatFrame, "Please authorize", true);
+        //dialog.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
+        dialog.setSize(180, 200);
+        dialog.setVisible(true);
+
+        JPanel top = new JPanel();
+        GridLayout gridLayout = new GridLayout(2, 2);
+        top.setLayout(gridLayout);
+        JLabel log = new JLabel("Login");
+        top.add(log);
+        JTextField log_inp = new JTextField("");
+        top.add(log_inp);
+        JLabel pas = new JLabel("Password");
+        top.add(pas);
+        JTextField pass_inp = new JTextField("");
+        top.add(pass_inp);
+
+        dialog.add(top, BorderLayout.NORTH);
+
+        return dialog;
     }
 
     public ChatFrame(Consumer<String> outConsumer) {
 
         this.outConsumer = outConsumer;
+        ChatFrame frame = this;
 
-        messageConsumer = new Consumer<String>() {
+        messageConsumer = new Consumer<ChatCommand>() {
             @Override
-            public void accept(String inMess) {
-                textArea.append(inMess+"\n");
+            public void accept(ChatCommand command) {
+                command.execute(frame);
             }
         };
 
@@ -95,7 +125,6 @@ public class ChatFrame implements KeyListener {
     public void sendMessage() {
         String messageStr = input.getText().trim();
         outConsumer.accept(messageStr);
-        //textArea.append(messageStr + "\n");
         input.setText("");
         input.grabFocus();
     }
