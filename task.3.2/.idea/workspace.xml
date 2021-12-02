@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="1f012a10-ffa1-4429-b023-c94e15c38b32" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../lesson.3.2/.idea/libraries/sqlite_jdbc_3_32_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lesson.3.2/lesson.3.2.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lesson.3.2/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lesson.3.2/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lesson.3.2/.idea/dbnavigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../lesson.3.2/.idea/dbnavigator.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lesson.3.2/.idea/description.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lesson.3.2/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lesson.3.2/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lesson.3.2/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../lesson.3.2/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lesson.3.2/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../lesson.3.2/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lesson.3.2/.idea/project-template.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lesson.3.2/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lesson.3.2/JavaFxApplication.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lesson.3.2/out/production/JavaFxApplication/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lesson.3.2/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lesson.3.2/src/Main.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="21QDGZYGHSZ7xT8wvG87HBltlwV" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/sqlite-jdbc-3.32.3.jar" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.18478261" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="restartRequiresConfirmation" value="false" />
+  </component>
+  <component name="RunManager" selected="Application.Chat3">
+    <configuration name="Chat1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Chat1" />
+      <module name="task.3.2" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Chat2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Chat2" />
+      <module name="task.3.2" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Chat3" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Chat3" />
+      <module name="task.3.2" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="JdbcConnector" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="server.JdbcConnector" />
+      <module name="task.3.2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ServerStarter" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ServerStarter" />
+      <module name="task.3.2" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Chat3" />
+        <item itemvalue="Application.Chat2" />
+        <item itemvalue="Application.Chat1" />
+        <item itemvalue="Application.ServerStarter" />
+        <item itemvalue="Application.JdbcConnector" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1f012a10-ffa1-4429-b023-c94e15c38b32" name="Default Changelist" comment="" />
+      <created>1637864323458</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1637864323458</updated>
+    </task>
+    <servers />
+  </component>
+</project>
