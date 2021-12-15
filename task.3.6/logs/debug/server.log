@@ -1,0 +1,7 @@
+2021-12-13 22:00:58 ERROR Server:31 - Error
+2021-12-13 22:00:58 FATAL Server:32 - Fatal
+2021-12-14 13:16:18 INFO  Server:27 - Server started.
+2021-12-14 13:16:18 INFO  Server:35 - Server socket created on port 8888.
+2021-12-14 13:16:29 INFO  Server:203 - New user coming
+2021-12-14 13:16:34 INFO  Server:224 - User authorized login [u1]
+2021-12-14 13:21:29 INFO  Server:171 - Client connection closed by timeout for user [marmadjuk]
